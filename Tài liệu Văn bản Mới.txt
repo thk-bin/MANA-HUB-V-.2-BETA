@@ -1,0 +1,22 @@
+local a, b = pcall(function()
+    loadstring(game:HttpGet("https://ego-d.xyz/Script"))()
+end)
+if a and game:IsLoaded() and game.PlaceId then
+    game.StarterGui:SetCore("SendNotification", {
+      Title = "Sea Hub",
+      Text = "This game is not supported, make sure to check #features channel that you executed on the corrected game",
+      Duration = 20
+    })
+else
+    repeat wait() until game:IsLoaded() and game.PlaceId wait(2)
+    repeat wait()
+        warn("Attempted to Re-Execute Sea Hub")
+        local a, b = pcall(function()
+            loadstring(game:HttpGet("https://ego-d.xyz/Script"))()
+        end)
+        if not a then
+            wait(30)
+            warn("Failed to execute Sea Hub, retry in 30s")
+        end
+    until a
+end
